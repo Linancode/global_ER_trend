@@ -31,12 +31,13 @@ ER_Train<-as.h2o(ER_data)
 # ER_Test<-as.h2o(test_df)
 
 # set the predictor names and the response column name
+# predictors <- colnames(ER_Train)[2:17]
 predictors <- colnames(ER_Train)[2:16]
 # set the response
 name1<-"RECO"
 response <-name1
 # split into train sets
-boston_splits <- h2o.splitFrame(data = ER_Train, ratios = 0.8,seed=666) ##,seed = 66
+boston_splits <- h2o.splitFrame(data = ER_Train, ratios = 0.8) ##ratios = 0.7,seed = 66
 train <- boston_splits[[1]]
 valid <- boston_splits[[2]]
 ######Model
